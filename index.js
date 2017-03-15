@@ -3,13 +3,6 @@ const fetch = require('node-fetch');
 const _ = require('lodash');
 
 const API_LINK = (ip) => `http://${ip}/rcp.xml?command=0x0b4a&type=P_OCTET&direction=READ&num=1`;
-const FIRST_CAM = '100.103.1.215';
-const SECOND_CAM = '100.103.1.208';
-
-const allCams = [
-    FIRST_CAM,
-    SECOND_CAM
-]
 
 var camData = [];
 
@@ -38,7 +31,7 @@ const readBuffer = (ip, buff) => {
         buffCount += 70;
         infoObj = Object.assign({}, infoObj, readSingleValue(myBuff.slice(startCount, buffCount)));
     }
-    const indexOfCamObj = _.findIndex(camData, o => o.id === ip)
+    const indexOfCamObj = _.findIndex(camData, o => o.ip === ip)
     if(indexOfCamObj < 0){
         // not found
         camData.push(infoObj);
@@ -56,6 +49,14 @@ const readSingleValue = (buf) => {
 }
 
 // get Data from the camera every x ms
+const FIRST_CAM = '100.103.1.215';
+const SECOND_CAM = '100.103.1.208';
+const allCams = [
+    '100.103.1.215',
+    '100.103.1.208',
+    '100.103.1.220',
+    '100.103.1.203'
+]
 setInterval(() => {pullCamData(allCams)}, 300);
 
 const app = express();
