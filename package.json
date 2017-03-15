@@ -1,0 +1,17 @@
+{
+  "name": "bosch-camera-data-fetch",
+  "version": "1.0.0",
+  "description": "a little service which receives data from the camera",
+  "main": "index.js",
+  "repository": {"url" : "https://github.com/BCX17BuildingCity/bosch-camera-data-fetch"},
+  "author": "Tim Gutsche",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.15.2",
+    "lodash": "^4.17.4",
+    "node-fetch": "^1.6.3"
+  }
+}
