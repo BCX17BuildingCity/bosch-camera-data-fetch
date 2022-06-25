@@ -12,6 +12,6 @@
   "dependencies": {
     "express": "^4.15.2",
     "lodash": "^4.17.19",
-    "node-fetch": "^1.6.3"
+    "node-fetch": "^2.6.7"
   }
 }
